@@ -77,7 +77,7 @@ class Index
         }
 
         $token = $info['access_token'];
-        log_message('info', 'access_token:'.print_r($token,true).'--line:'.__LINE__);
+        // log_message('info', 'access_token:'.print_r($token,true).'--line:'.__LINE__);
 
         echo $token;
     }
@@ -85,8 +85,8 @@ class Index
     public function send_pic(){
         $result = ['code'=>'400','msg'=>'识别失败'];
         $data = $_POST;
-        log_message('info', '接收参数:'.print_r($data,true).'--line:'.__LINE__);
-        log_message('info', '接收文件:'.print_r($_FILES,true).'--line:'.__LINE__);
+        // log_message('info', '接收参数:'.print_r($data,true).'--line:'.__LINE__);
+        // log_message('info', '接收文件:'.print_r($_FILES,true).'--line:'.__LINE__);
         
         $info = json_decode(file_get_contents('./access_token.token'),true);
         if(empty($info) || $info['timeout']<time()){
@@ -94,7 +94,7 @@ class Index
         }
 
         $token = $info['access_token'];
-        log_message('info', 'access_token:'.print_r($token,true).'--line:'.__LINE__);
+        // log_message('info', 'access_token:'.print_r($token,true).'--line:'.__LINE__);
 
         $type = $_GET['type'];
         $url_list = [
@@ -111,7 +111,7 @@ class Index
         );
 
         $res = json_decode($this->announcement_curl($url,$bodys),true);
-        log_message('info', '识别结果:'.print_r($res,true).'--line:'.__LINE__);
+        // log_message('info', '识别结果:'.print_r($res,true).'--line:'.__LINE__);
 
         //判断是否识别成功
         if(isset($res['error_code']) && $res['error_code']!=''){
